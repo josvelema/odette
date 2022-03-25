@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
+}
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 9999;
+  position: fixed;
+  background-color: #394555;
+}
+nav h1 {
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 26px;
+  display: inline-block;
+  line-height: 65px;
+  padding: 0 80px 0 80px;
+  color: #edf0f3;
+}
+nav > ul {
+  list-style-type: none;
+}
+nav > ul ul {
+  list-style-type: none;
+  display: none;
+  position: absolute;
+  top: 100%;
+}
+nav > ul > li {
+  display: inline-block;
+}
+nav > ul li li {
+  position: relative;
+}
+nav > ul > li:hover > ul {
+  display: block;
+}
+nav > ul > li > ul li:hover > ul {
+  display: block;
+  top: 0;
+  left: 100%;
+}
+nav a {
+  display: block;
+  padding: 25px 45px 25px 45px;
+  background-color: #394555;
+  text-decoration: none;
+  color: #dadcdf;
+  font-weight: bold;
+  font-size: 14px;
+  min-width: 150px;
+  text-align: center;
+}
+nav > ul > li > a {
+  border-right: 1px solid #2b3543;
+}
+nav > ul > li:first-child > a {
+  border-left: 1px solid #2b3543;
+}
+nav > ul > li > a:hover {
+  background-color: #303a47;
+}
+
+nav label,
+nav input {
+  display: none;
+}
+
+
+@media screen and (max-width: 700px) {
+  nav ul {
+    display: none;
+  }
+  nav label {
+    display: block;
+    
+    text-align: center;
+    width: 40px;
+    border-left: 1px solid #2b3543;
+    padding: 15px 25px 15px 25px;
+    opacity: 0.8;
+  }
+  nav input:checked ~ ul {
+    display: block;
+    top: 100%;
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 100%);
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  nav input:checked ~ ul li,
+  nav input:checked ~ ul ul,
+  nav input:checked ~ ul a {
+    position: static;
+    display: block;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  nav input:checked ~ ul ul ul ~ a::after {
+    border: 0;
+  }
+  nav a {
+    background-color: #29323d;
+  }
+}
