@@ -1,76 +1,136 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  margin: 0;
 }
 
-html,
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background: #cc95c0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #7aa1d2,
+    #dbd4b4,
+    #cc95c0
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #7aa1d2,
+    #dbd4b4,
+    #cc95c0
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+/* body > * {
+  --layout-spacing: max(8vh, 3rem);
+  --max-width: 66vw;
+  width: min(100%, var(--max-width));
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+main {
+  margin-top: var(--layout-spacing);
+  padding: 5vh clamp(1rem, 5vw, 3rem) 1rem;
+}
+
+footer {
+  margin-top: auto;
+  padding-top: var(--layout-spacing);
+}
+
+footer p {
+  border-top: 1px solid #ccc;
+  padding-top: 0.25em;
+  font-size: 0.9rem;
+  color: #767676;
+}
+
+:is(h1, h2, h3) {
+  line-height: 1.2;
+}
+
+:is(h2, h3):not(:first-child) {
+  margin-top: 2em;
+}
+
+article * + * {
+  margin-top: 1em;
+}
+
+a {
+  color: navy;
+  text-underline-offset: 0.15em;
+}
+
 nav {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: flex-end;
-  box-sizing: border-box;
+
   width: 100%;
   z-index: 9999;
   position: fixed;
-  background-color: #394555;
+  background: #cc95c0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #7aa1d2,
+    #dbd4b4,
+    #cc95c0
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #7aa1d2,
+    #dbd4b4,
+    #cc95c0
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 nav h1 {
-  box-sizing: border-box;
-  margin: 0;
+  flex: 1;
   font-size: 26px;
   display: inline-block;
-  line-height: 65px;
-  padding: 0 80px 0 80px;
-  color: #edf0f3;
+  padding: 0 1em 0 1em;
+  color: #1d2e3f;
+  letter-spacing: 2px;
+  font-weight: 400;
 }
+
 nav > ul {
   list-style-type: none;
-}
-nav > ul ul {
-  list-style-type: none;
-  display: none;
-  position: absolute;
-  top: 100%;
+  width: 100% !important;
 }
 nav > ul > li {
   display: inline-block;
+  width: 120px;
 }
-nav > ul li li {
-  position: relative;
-}
-nav > ul > li:hover > ul {
-  display: block;
-}
-nav > ul > li > ul li:hover > ul {
-  display: block;
-  top: 0;
-  left: 100%;
-}
+
 nav a {
   display: block;
-  padding: 25px 45px 25px 45px;
-  background-color: #394555;
+  padding: 1.5em 1em;
+  
   text-decoration: none;
-  color: #dadcdf;
-  font-weight: bold;
-  font-size: 14px;
-  min-width: 150px;
+  color: #1d2e3f;
+  
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 2px;
   text-align: center;
 }
 nav > ul > li > a {
-  border-right: 1px solid #2b3543;
+  border-right: 1px solid hsl(215, 22%, 22%, 0.44);
 }
 nav > ul > li:first-child > a {
-  border-left: 1px solid #2b3543;
+  border-left: 1px solid hsl(215, 22%, 22%, 0.44)
 }
 nav > ul > li > a:hover {
-  background-color: #303a47;
+  background-color: hsl(215, 22%, 22%, 0.44);
+  color: #fafafa;
 }
 
 nav label,
@@ -78,35 +138,68 @@ nav input {
   display: none;
 }
 
-
 @media screen and (max-width: 700px) {
+  input[type="checkbox"] + label .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: hsl(184, 36%, 16%);
+    margin: 4px;
+    transition: all 0.3s cubic-bezier(0.07, 0.99, 0.94, 0.28);
+}
+input[type="checkbox"] + label .top-bar {
+    transform: rotate(0);
+}
+input[type="checkbox"] + label .middle-bar {
+    opacity: 1;
+}
+
+input[type="checkbox"]:checked + label .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+}
+input[type="checkbox"]:checked + label .middle-bar {
+    opacity: 0;
+}
+input[type="checkbox"]:checked + label .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+}
+
+
   nav ul {
     display: none;
   }
   nav label {
     display: block;
-    
+
     text-align: center;
     width: 40px;
     border-left: 1px solid #2b3543;
-    padding: 15px 25px 15px 25px;
+    padding: 0.75em;
     opacity: 0.8;
   }
   nav input:checked ~ ul {
-    display: block;
+    display: inline-flex;
+    flex-direction: column;
     top: 100%;
     position: absolute;
     width: 100%;
     height: calc(100vh - 100%);
     overflow-y: scroll;
     overflow-x: hidden;
+    backdrop-filter: blur(9px) saturate(167%);
+        -webkit-backdrop-filter: blur(9px) saturate(167%);
+        background-color: rgba(17, 25, 40, 0.66);
+        border: 1px solid hsl(229, 40%, 68%);
+        padding: 0 0.25em 0.3 0;
   }
   nav input:checked ~ ul li,
   nav input:checked ~ ul ul,
   nav input:checked ~ ul a {
     position: static;
-    display: block;
-    width: 100%;
+    display: inline-flex;
+    width: 100% !important;
     top: 0;
     left: 0;
   }
@@ -114,6 +207,93 @@ nav input {
     border: 0;
   }
   nav a {
-    background-color: #29323d;
+    background-color: hsla(300, 12%, 84% , 0.9);
+  }
+}
+/* 
+header {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+} */
+
+.band {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+@media (min-width: 30em) {
+  .band {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 60em) {
+  .band {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  text-decoration: none;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 66, 0.2);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+  top: 0;
+  transition: all 0.2s ease-in;
+}
+.card:hover {
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 66, 0.35);
+}
+.card article {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+.card p {
+  flex: 1;
+  line-height: 1.4;
+}
+.card span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 2em 0 0 0;
+}
+.card .thumb {
+  padding-bottom: 1em;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.card .thumb img {
+  object-fit: contain;
+  width: 100%;
+}
+
+@media (min-width: 60em) {
+  .item-1:first-of-type {
+    grid-column: 1 / span 2;
+  }
+  .item-1:first-of-type h1 {
+    font-size: 24px;
   }
 }

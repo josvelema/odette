@@ -4,7 +4,7 @@
 
 <?php
 
-		checkLoginAndRedirect('/cms/admin');
+		checkLoginAndRedirect('/odette/admin');
 
 
 		if(isMethod('post')){
@@ -17,7 +17,7 @@
 			}else {
 
 
-				redirect('/cms/login.php');
+				redirect('/odette/login.php');
 			}
 
 		}

@@ -9,14 +9,14 @@ define ('DB_NAME','odettecms');
 
 $conn = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
-if($conn) {
+// if($conn) {
 
-  echo "works";
+//   echo "works";
 
-} else {
+// } else {
 
-  echo "nope";
-}
+//   echo "nope";
+// }
 
 ?>
 
