@@ -26,7 +26,7 @@ if ($page == "" || $page == 1) {
 
 <main class="home">
     <section class="hero">
-        <h1>Odette</h1>
+        <h1>Odette<br>Frances Fae</h1>
 
         <div class="band">
         <?php
