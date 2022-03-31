@@ -26,7 +26,8 @@ if ($page == "" || $page == 1) {
 
 <main class="home">
     <section class="hero">
-        <h1>Odette</h1>
+        
+        <h1>Odette<br>Frances Fae</h1>
 
         <div class="band">
         <?php
@@ -87,14 +88,6 @@ if ($page == "" || $page == 1) {
     </div>
     </section>
     </main>
-    <footer>
-      <p>
-        Developed and Designed by Jos Velema <br />
-        2022 <a href="http://www.codette.net">Codette.net</a>
-      </p>
-    </footer>
-  </body>
-</html>
 
 
 
@@ -117,7 +110,7 @@ if ($page == "" || $page == 1) {
             // 
             ?>
 
-        </ul> -->
+        </ul> 
 
 
 
