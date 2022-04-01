@@ -56,7 +56,9 @@ if ($page == "" || $page == 1) {
 
             $post_image = $row['post_image'];
 
-            $post_content = substr($row['post_content'], 0, 128);
+            // $post_content = substr($row['post_content'], 0, 128);
+            $post_content = $row['post_content'];
+
 
             $post_status = $row['post_status'];
 
