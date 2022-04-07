@@ -7,7 +7,7 @@ include "includes/nav.php";
 
 <main class="home message">
     <section class="section-post">
-    <h1>Odette<br>Frances Fae</h1>
+        <h1>Odette's Gastenboek</h1>
 
 
         <?php
@@ -40,45 +40,65 @@ include "includes/nav.php";
         }
 
         ?>
-<div class="band">
+        <div class="band">
+            <div class="item-1">
+                <div class="form-wrapper card">
+                    <h4>Laat een bericht achter</h4>
+                    <form method="POST">
+                        <div class="rj-input-group">
+                            <label class="form-label" for="msg_author">Naam</label>
+                            <input type="text" id="name" placeholder="naam" name="msg_author">
+                        </div>
+                        <div class="rj-input-group">
+                            <label class="form-label" for="email">E-mail</label>
+                            <input type="text" id="email" placeholder="email@email.com" name="msg_email">
+                        </div>
+                        <div class="rj-input-group">
+                            <label class="form-label" for="content">Comment</label>
+                            <textarea rows="5" columns ="50" id="content" placeholder="Comment" name="msg_content"></textarea>
+                        </div>
+                        <input type="submit" value="Submit" name="create_msg">
+                    </form>
+                </div>
+            </div>
 
-    <?php
+            <?php
 
-    $query = "SELECT * FROM messages ";
-    $query .= "WHERE msg_status = 'approved' ";
-    $query .= "ORDER BY msg_id DESC ";
+            $query = "SELECT * FROM messages ";
+            $query .= "WHERE msg_status = 'approved' ";
+            $query .= "ORDER BY msg_id DESC ";
 
-    $select_msg_query = mysqli_query($conn, $query);
+            $select_msg_query = mysqli_query($conn, $query);
 
-    confirm_query($select_msg_query);
+            confirm_query($select_msg_query);
 
-    while ($row = mysqli_fetch_array($select_msg_query)) {
-        $msg_date = $row['msg_date'];
-        $msg_content = $row['msg_content'];
-        $msg_author = $row['msg_author'];
-        $msg_email = $row['msg_email'];
-
-
-
-    ?>
+            while ($row = mysqli_fetch_array($select_msg_query)) {
+                $msg_date = $row['msg_date'];
+                $msg_content = $row['msg_content'];
+                $msg_author = $row['msg_author'];
+                $msg_email = $row['msg_email'];
 
 
 
+            ?>
 
-        <!-- Comment -->
-        <div class="item-1">
 
-              <article class="card">
-                <h2><?php echo $msg_author;  ?></h2>
-                <p><?php echo $msg_content ;?></p>
-                <span><small><?php echo "Posted on: " . $msg_date ?></small></span>
-              </article>
+
+
+                <!-- Comment -->
+                <div class="item-1">
+
+                    <article class="card">
+                        <h2><?php echo $msg_author;  ?></h2>
+                        <p><?php echo $msg_content; ?></p>
+                        <span><small><?php echo "Posted on: " . $msg_date ?></small></span>
+                    </article>
+                </div>
+            <?php
+            }
+            ?>
         </div>
-    <?php
-   } 
-   ?>
-</div>
-</section>
+    </section>
 
     <!-- Comments Form -->
     <!-- <div class="well">
@@ -106,26 +126,7 @@ include "includes/nav.php";
     </div> -->
     <section class="section-post">
 
-        <div class="form-wrapper card">
-            <h4>Laat een bericht achter</h4>
-            <form method="POST">
-                <div class="rj-input-group">
-                    <label class="form-label" for="msg_author">Naam</label>
-                    <input type="text" id="name" placeholder="naam" name="msg_author">
 
-                </div>
-                <div class="rj-input-group">
-                    <label class="form-label" for="email">E-mail</label>
-                    <input type="text" id="email" placeholder="email@email.com" name="msg_email">
-
-                </div>
-                <div class="rj-input-group">
-                    <label class="form-label" for="content">Comment</label>
-                    <textarea rows="3" id="content" placeholder="Comment" name="msg_content"></textarea>
-                </div>
-                <input type="submit" value="Submit" name="create_msg">
-            </form>
-        </div>
 
 
 

@@ -7,7 +7,7 @@ require 'vendor/phpmailer/phpmailer/src/SMTP.php';
 include "includes/header.php";
 include "includes/db.php";
 include "includes/nav.php";
-$max_posts_per_page = 6;
+$max_posts_per_page = 20;
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -26,10 +26,19 @@ if ($page == "" || $page == 1) {
 
 <main class="home">
     <section class="hero">
-        
+        <header>
         <h1>Odette<br>Frances Fae</h1>
-
+        <div class="rj-flex-col">
+            <img src="images/swanWhite.svg" alt="zwaan">
+            <div class="rj-cta">
+                <p>
+                Welkom op Odette's website! bekijk wat foto's en laat een comment achter of stuur Odette een berichtje in het <a href="message.php">gastenboek</a>
+                </p>
+            </div>
+        </div>
+        </header>
         <div class="band">
+
         <?php
         $post_query_count = "SELECT * FROM posts";
         $count_posts = mysqli_query($conn, $post_query_count);

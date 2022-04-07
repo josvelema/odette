@@ -180,7 +180,7 @@ include "includes/nav.php";
                 </div>
                 <div class="rj-input-group">
                     <label class="form-label" for="content">Comment</label>
-                    <textarea rows="3" id="content" placeholder="Comment" name="comment_content"></textarea>
+                    <textarea rows="5" id="content" placeholder="Comment" name="comment_content"></textarea>
                 </div>
                 <input type="submit" value="Submit" name="create_comment">
             </form>

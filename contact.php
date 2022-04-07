@@ -14,11 +14,8 @@ if (isset($_POST['submit'])) {
 
 
     if (!empty($con_name) && !empty($con_email) && !empty($con_subject)) {
-
-      
     }
-
-  }
+}
 
 ?>
 
@@ -28,38 +25,36 @@ if (isset($_POST['submit'])) {
 
 <?php include "includes/nav.php"; ?>
 
-<br>
-<br>
-
 <!-- Page Content -->
-<div class="container">
 
-<h1>Contact</h1>
-                        <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
-                            <!-- <h6 class="text-center"> <?php echo $message; ?> </h6> -->
-                            <div class="form-group">
-                                <label for="con_name" class="sr-only">Name</label>
-                                <input type="text" name="con_name" id="con_name" class="form-control" placeholder="Enter your name">
-                            </div>
-                            <div class="form-group">
-                                <label for="con_email" class="sr-only">Email</label>
-                                <input type="email" name="con_email" id="con_email" class="form-control" placeholder="Enter your e-mail">
-                            </div>
-                            <div class="form-group">
-                                <label for="con_subject" class="sr-only">Subject/label>
-                                <input type="text" name="con_subject" id="con_subject" class="form-control" placeholder="Subject">
-                            </div>
-                            <div class="form-group">
-                              <textarea name="con_msg" id="con_msg" col="50" rows="10"></textarea>
-                            </div>
+<main class="home contact">
+    <h1>Contact</h1>
 
-                            <input type="submit" name="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="submit">
-                        </form>
-
-
-
-    <hr>
+    <form method="POST">
+        <div class="rj-input-group">
+            <label class="form-label" for="msg_author">Name</label>
+            <input type="text" id="con_name" placeholder="naam" name="con_author">
+        </div>
+        <div class="rj-input-group">
+            <label class="form-label" for="email">E-mail</label>
+            <input type="text" id="con_email" placeholder="email@email.com" name="con_email">
+        </div>
+        <div class="rj-input-group">
+            <label class="form-label" for="con-subject">Subject</label>
+            <input type="text" id="con_subject" placeholder="email@email.com" name="con_email">
+        </div>
+        <div class="rj-input-group">
+            <label class="form-label" for="content">Message</label>
+            <textarea rows="5" columns="50" id="content" placeholder="message" name="con_msg"></textarea>
+        </div>
+        <input type="submit" value="Submit" name="submit">
+    </form>
 
 
 
-    <?php include "includes/footer.php"; ?>
+    
+</main>
+
+
+
+<?php include "includes/footer.php"; ?>

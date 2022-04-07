@@ -10,9 +10,9 @@
         </span>
         </label>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="blog.php">News</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="message.php">Gastenboek</a></li>
+            <li><a href="about.php">Odette</a></li>
             <li><a href="contact.php">Contact</a></li>
         </ul>
     </nav>
