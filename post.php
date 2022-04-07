@@ -5,7 +5,7 @@ include "includes/db.php";
 include "includes/nav.php";
 ?>
 
-<main class="home">
+<main class="home post-main">
     <section class="section-post">
 
 
@@ -74,7 +74,7 @@ include "includes/nav.php";
 
                 $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status) ";
 
-                $query .= "VALUES ({$this_post_id}, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved')";
+                $query .= "VALUES ({$this_post_id}, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'approved')";
 
                 $create_comment_query = mysqli_query($conn, $query);
 
@@ -170,7 +170,7 @@ include "includes/nav.php";
             <form method="POST">
                 <div class="rj-input-group">
                     <label class="form-label" for="comment_author">Naam</label>
-                    <input type="text" id="name" placeholder="naam">
+                    <input type="text" id="name" placeholder="naam" name="comment_author">
 
                 </div>
                 <div class="rj-input-group">

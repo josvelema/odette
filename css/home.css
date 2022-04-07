@@ -410,4 +410,6 @@ input::placeholder {
   color: rgba(200,200,200,0.9)
 }
 
-
+.post-main {
+  margin-top: 5rem;
+}
