@@ -68,7 +68,7 @@ if ($page == "" || $page == 1) {
 
 
           <div class="item-1">
-            <a href="post/<?php echo $post_id; ?>" class="card">
+            <a href="post.php?p_id=<?php echo $post_id; ?>" class="card">
               <div class="thumb">
                   <img src="images/<?php echo $post_image; ?>" alt="<?php echo $post_title;  ?>">
               </div>
