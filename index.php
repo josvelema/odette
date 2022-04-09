@@ -7,7 +7,7 @@ require 'vendor/phpmailer/phpmailer/src/SMTP.php';
 include "includes/header.php";
 include "includes/db.php";
 include "includes/nav.php";
-$max_posts_per_page = 20;
+$max_posts_per_page = 5;
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -110,15 +110,15 @@ if ($page == "" || $page == 1) {
             <?php
 
 
-            // for ($i = 1; $i <= $counted_posts; $i++) {
+            for ($i = 1; $i <= $counted_posts; $i++) {
 
-            // if ($i == $page) {
-            // echo "<li><a class='active_link' href='index.php?page={$i}'>{$i}</a></li>";
-            // } else {
-            // echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
-            // }
-            // }
-            // 
+            if ($i == $page) {
+            echo "<li><a class='active_link' href='index.php?page={$i}'>{$i}</a></li>";
+            } else {
+            echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
+            }
+            }
+            
             ?>
 
         </ul> 
